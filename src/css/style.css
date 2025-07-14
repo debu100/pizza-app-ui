@@ -49,7 +49,7 @@ body {
   gap: 2rem;
 }
 
-.item-name{
+.item-name {
   font-size: 1.25rem;
   font-weight: 400;
   color: #252525;
@@ -82,6 +82,30 @@ body {
   overflow: hidden;
 } */
 
+.item-box {
+  position: relative;
+}
+
+.soldOut {
+  filter: grayscale(100%);
+}
+
+.soldOutTxt {
+  filter: blur(1px);
+}
+
+.soldOut-badge {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  background: #ff0000;
+  color: #ffffff;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: bold;
+  border-radius: 0.5rem;
+}
+
 .item-img {
   width: 8rem;
   /* width: 10vw; */
@@ -89,7 +113,7 @@ body {
   object-fit: cover; */
 }
 
-button{
+button {
   padding: 0.75rem 1.5rem;
   background-color: #edc84b;
   font-weight: 500;
@@ -101,7 +125,7 @@ button{
   transition: all 0.5s ease-in;
 }
 
-button:hover{
+button:hover {
   letter-spacing: 2px;
 }
 

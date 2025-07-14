@@ -59,12 +59,23 @@ const MenuList = () => {
         {pizzaData.map((item, index) => (
           <div key={index} className="item-box">
             <div className="img-box">
-              <img src={item.photoName} alt="img" className="item-img" />
+              <img
+                src={item.photoName}
+                alt="img"
+                className={`item-img ${item.soldOut ? "soldOut" : ""}`}
+              />
+              {item.soldOut && <span className="soldOut-badge">Sold Out</span>}
             </div>
             <div className="content-box">
-              <h2 className="item-name">{item.name}</h2>
-              <p className="item-para">{item.ingredients}</p>
-              <p className="item-qty">{item.price}</p>
+              <h2 className={`item-name ${item.soldOut ? "soldOutTxt" : ""}`}>
+                {item.name}
+              </h2>
+              <p className={`item-para ${item.soldOut ? "soldOutTxt" : ""}`}>
+                {item.ingredients}
+              </p>
+              <p className={`item-qty ${item.soldOut ? "soldOutTxt" : ""}`}>
+                {item.price}
+              </p>
             </div>
           </div>
         ))}
