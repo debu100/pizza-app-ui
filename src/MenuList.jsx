@@ -7,6 +7,7 @@ import margherita from "./images/margherita.jpg";
 import prosciutto from "./images/prosciutto.jpg";
 import salamino from "./images/salamino.jpg";
 import spinaci from "./images/spinaci.jpg";
+import Timings from "./Timings";
 
 const MenuList = () => {
   const pizzaData = [
@@ -101,22 +102,26 @@ const MenuList = () => {
 
       {/* //? conditional rendering using Ternary Operator */}
 
-      <div style={{ textAlign: "center" }}>
+      {/* <div style={{ textAlign: "center" }}>
         {isOpen ? (
           <div>
             <p style={{ textAlign: "center", margin: "2.5rem 0 1.5rem 0" }}>
-              We're currently <strong>open</strong>. Our Timings - 10 am to 10
-              pm.
+              We're currently <strong>open</strong>. Our Timings - {openHour} am
+              to {closeHour} pm.
             </p>
             <button style={{ marginBottom: "1.5rem" }}>order now</button>
           </div>
         ) : (
           <p style={{ textAlign: "center", margin: "2.5rem 0 1.5rem 0" }}>
-            We're currently <strong>closed</strong>. Our Timings - 10 am to 10
-            pm.
+            We're currently <strong>closed</strong>. Our Timings - {openHour} am
+            to {closeHour} pm.
           </p>
         )}
-      </div>
+      </div> */}
+
+      {/* Extracted the above logic in another component */}
+
+      <Timings openHour={openHour} closeHour={closeHour} isOpen={isOpen} />
     </div>
   );
 };
