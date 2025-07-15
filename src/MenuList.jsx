@@ -53,6 +53,11 @@ const MenuList = () => {
       soldOut: false,
     },
   ];
+  // making the work duration dynamic
+  const hour = new Date().getHours();
+  const openHour = 10;
+  const closeHour = 22;
+  const isOpen = openHour < hour && closeHour > hour;
   return (
     <div>
       <div className="item-box-parent">
@@ -80,11 +85,37 @@ const MenuList = () => {
           </div>
         ))}
       </div>
+
+      {/* //? conditional rendering using && */}
+
+      {/* <div style={{ textAlign: "center" }}>
+        {isOpen && (
+          <div>
+            <p style={{ textAlign: "center", margin: "2.5rem 0 1.5rem 0" }}>
+              We're currently open. Our Timings - 10 am to 10 pm.
+            </p>
+            <button style={{ marginBottom: "1.5rem" }}>order now</button>
+          </div>
+        )}
+      </div> */}
+
+      {/* //? conditional rendering using Ternary Operator */}
+
       <div style={{ textAlign: "center" }}>
-        <p style={{ textAlign: "center", margin: "2.5rem 0 1.5rem 0" }}>
-          We're happy to welcome you between 12:00 and 22:00.
-        </p>
-        <button style={{ marginBottom: "1.5rem" }}>order now</button>
+        {isOpen ? (
+          <div>
+            <p style={{ textAlign: "center", margin: "2.5rem 0 1.5rem 0" }}>
+              We're currently <strong>open</strong>. Our Timings - 10 am to 10
+              pm.
+            </p>
+            <button style={{ marginBottom: "1.5rem" }}>order now</button>
+          </div>
+        ) : (
+          <p style={{ textAlign: "center", margin: "2.5rem 0 1.5rem 0" }}>
+            We're currently <strong>closed</strong>. Our Timings - 10 am to 10
+            pm.
+          </p>
+        )}
       </div>
     </div>
   );
