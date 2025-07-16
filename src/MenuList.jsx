@@ -54,6 +54,8 @@ const MenuList = () => {
       soldOut: false,
     },
   ];
+  //* if for some reason the array is empty - check using arr.length property
+  // const pizzaData = [];
   // making the work duration dynamic
   const hour = new Date().getHours();
   const openHour = 10;
@@ -62,7 +64,47 @@ const MenuList = () => {
   return (
     <div>
       <div className="item-box-parent">
-        {pizzaData.map((item, index) => (
+        {pizzaData && pizzaData.length > 0 ? (
+          pizzaData.map((item, index) => (
+            <div key={index} className="item-box">
+              <div className="img-box">
+                <img
+                  src={item.photoName}
+                  alt="img"
+                  className={`item-img ${item.soldOut ? "soldOut" : ""}`}
+                />
+                {item.soldOut && (
+                  <span className="soldOut-badge">Sold Out</span>
+                )}
+              </div>
+              <div className="content-box">
+                <h2 className={`item-name ${item.soldOut ? "soldOutTxt" : ""}`}>
+                  {item.name}
+                </h2>
+                <p className={`item-para ${item.soldOut ? "soldOutTxt" : ""}`}>
+                  {item.ingredients}
+                </p>
+                <p className={`item-qty ${item.soldOut ? "soldOutTxt" : ""}`}>
+                  {item.price}
+                </p>
+              </div>
+            </div>
+          ))
+        ) : (
+          <p
+            style={{
+              textAlign: "center",
+              width: "75vw",
+              backgroundImage:
+                "linear-gradient(120deg, #f093fb 0%, #f5576c 100%)",
+              padding: "1rem",
+            }}
+          >
+            We're still working on our menu, visit later!
+          </p>
+        )}
+
+        {/* {pizzaData.map((item, index) => (
           <div key={index} className="item-box">
             <div className="img-box">
               <img
@@ -84,7 +126,7 @@ const MenuList = () => {
               </p>
             </div>
           </div>
-        ))}
+        ))} */}
       </div>
 
       {/* //? conditional rendering using && */}
